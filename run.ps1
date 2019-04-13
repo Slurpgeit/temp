@@ -17,8 +17,8 @@ function Unzip($file, $destination) {
 }
 
 # Run
-#$wc.DownloadFile($SysInternals,"c:\temp\sysinternals.zip")
-#Unzip -File "c:\temp\sysinternals.zip" -Destination "c:\temp"
+$wc.DownloadFile($SysInternals,"c:\temp\sysinternals.zip")
+Unzip -File "c:\temp\sysinternals.zip" -Destination "c:\temp"
 
 .\pssuspend.exe -accepteula tombraider.exe
 
